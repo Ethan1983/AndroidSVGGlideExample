@@ -2,7 +2,7 @@ package com.sample.androidsvgglideexample
 
 import android.graphics.drawable.PictureDrawable
 import android.net.Uri
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import com.caverock.androidsvg.SVG

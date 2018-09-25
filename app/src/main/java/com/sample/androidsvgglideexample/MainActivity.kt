@@ -4,21 +4,22 @@ import android.graphics.drawable.PictureDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
 import com.caverock.androidsvg.SVG
 import com.bumptech.glide.load.resource.file.FileToStreamDecoder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.model.StreamEncoder
 import java.io.InputStream
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import kotlinx.android.extensions.CacheImplementation
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.extensions.ContainerOptions
 
+@ContainerOptions(cache = CacheImplementation.SPARSE_ARRAY)
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val imageView = findViewById<ImageView>( R.id.imageView )
 
         val requestBuilder = Glide.with(this)
                 .using(Glide.buildStreamModelLoader<Uri>(Uri::class.java, this), InputStream::class.java)
